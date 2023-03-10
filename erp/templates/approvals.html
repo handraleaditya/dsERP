@@ -1,0 +1,127 @@
+{% extends "base_template.html" %}
+{% block content %}
+<div class = "container-fluid m-5">
+    <h1 class = "h2 text-gray-800">All Approvals </h1>
+
+    <div class = "row">
+
+        <!-- Pending approvals card -->
+        <div class = "col-lg-12 pt-5">
+            <div class="card border-left-warning shadow h-100 p-2 px-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2 ml-2">
+                            <div class="text-l font-weight-bold text-warning text-uppercase mb-2">
+                                Pending approvals <span class="font-weight-normal text-gray-600">({{num_pending_approvals}})</span></div>
+                            <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"></div> -->
+                        </div>
+                        <div class="col-auto pr-4 mb-2">
+                            <i class="bi bi-clock-history fa-3x text-gray-500 "></i>
+                        </div>
+                    </div>
+
+                    {% for approval in pending_approvals %}
+                    <!-- Approval Card Body -->
+                    <div class="row no-gutters align-items-center mb-4">
+                        <div class="col mr-2 ml-2">
+                            <div class ="card shadow p-2 p-4 border-bottom-warning">
+                                <div class ></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 pb-2">{{approval.title}}</div>
+                                <div class="pb-1"><i class="bi bi-file-earmark-text pr-2 "></i>Project: {{approval.project}}</div>
+                                <div class="pb-1"><i class="bi bi-cash-stack pr-2"></i>Amount :<b> ₹ {{approval.amount}}</b></div>
+                                <div class="pb-1"><i class="bi bi-info-circle pr-2"></i>Description : {{approval.description}}</div>
+                                <div class="pb-1"><i class="bi bi-person-fill pr-2"></i>Beneficiary : {{approval.beneficiary}}</div>
+                                <div class="pb-1"><i class="bi bi-bank pr-2"></i>Account details: {{approval.beneficiary_account}}</div>
+                            </div>    
+                        </div>
+                    </div>
+                    {%endfor%}
+
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accepted approvals card -->
+        <div class = "col-lg-12 pt-5">
+            <div class="card border-left-success shadow h-100 p-2 px-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2 ml-2">
+                            <div class="text-s font-weight-bold text-success text-uppercase mb-2">
+                                Accepted approvals <span class="font-weight-normal text-gray-600">({{num_approved_approvals}})</span></div>
+                        </div>
+                        <div class="col-auto pr-4 mb-2">
+                            <i class="bi bi-file-earmark-check fa-3x text-gray-500 "></i>
+                        </div>
+                    </div>
+                    
+                    {% for approval in accepted_approvals %}
+                    <!-- Approval Card Body -->
+                    <div class="row no-gutters align-items-center border-success-warning">
+                        <div class="col mr-2 ml-2">
+                            <div class ="card shadow p-2 p-4">
+                                <div class ></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 pb-2">{{approval.title}}</div>
+                                <div class="pb-1"><i class="bi bi-file-earmark-text pr-2 "></i>Project: {{approval.project}}</div>
+                                <div class="pb-1"><i class="bi bi-cash-stack pr-2"></i>Amount :<b> ₹ {{approval.amount}}</b></div>
+                                <div class="pb-1"><i class="bi bi-info-circle pr-2"></i>Description : {{approval.description}}</div>
+                                <div class="pb-1"><i class="bi bi-person-fill pr-2"></i>Beneficiary : {{approval.beneficiary}}</div>
+                                <div class="pb-1"><i class="bi bi-bank pr-2"></i>Account details: {{approval.beneficiary_account}}</div>
+                            </div>    
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+
+        <div class = "col-lg-12 pt-5">
+            <!-- Declined approvals card -->
+            <div class="card border-left-danger shadow h-100 p-2 px-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2 ml-2">
+                            <div class="text-s font-weight-bold text-danger text-uppercase mb-2">
+                                Rejected approvals <span class="font-weight-normal text-gray-600">({{num_declined_approvals}})</span></div>
+                        </div>
+                        <div class="col-auto pr-4 mb-2">
+                            <i class="bi bi-file-earmark-excel fa-3x text-gray-500"></i>
+                        </div>
+                    </div>
+                    {% for approval in declined_approvals %}
+                    <!-- Approval Card Body -->
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2 ml-2">
+                            <div class ="card shadow p-2 p-4">
+                                <div class ></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 pb-2">{{approval.title}}</div>
+                                <div class="pb-1"><i class="bi bi-file-earmark-text pr-2 "></i>Project: {{approval.project}}</div>
+                                <div class="pb-1"><i class="bi bi-cash-stack pr-2"></i>Amount :<b> ₹ {{approval.amount}}</b></div>
+                                <div class="pb-1"><i class="bi bi-info-circle pr-2"></i>Description : {{approval.description}}</div>
+                                <div class="pb-1"><i class="bi bi-person-fill pr-2"></i>Beneficiary : {{approval.beneficiary}}</div>
+                                <div class="pb-1"><i class="bi bi-bank pr-2"></i>Account details: {{approval.beneficiary_account}}</div>
+                            </div>    
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

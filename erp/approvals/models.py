@@ -28,7 +28,7 @@ class Approval(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for this approval")
 
     title = models.CharField(max_length=256, help_text="Enter the title for the request")
-    project = models.ForeignKey("Project", on_delete=models.SET_NULL, null=True)
+    project = models.ForeignKey("Project", on_delete=models.SET_NULL, null=True, help_text="Select the project for this approval")
     
     description = models.TextField(max_length=1024, blank=True, help_text="Enter the description of this request")
     amount = models.FloatField()
